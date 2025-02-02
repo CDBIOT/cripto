@@ -7,22 +7,8 @@ function BotPress(){
 const [people, setPeople] = useState([])
 
 
-async function getUsers(){
-    const options = { 
-        'Access-Control-Allow-Origin':'*',
-        method: 'GET',	
-        mode: 'cors',
-        cache: 'default',
-        'Content-Type': 'application/json'}
-
-await Axios.get(`https://test-no-vercel.vercel.app/src/app`,options)
-        .then(response=>{
-        setPeople(response.data.people)
-        console.log(response.data)        
-    })
-}
 useEffect(() => {
-    getUsers();
+ 
 }, [])
 
 
@@ -30,7 +16,19 @@ return (
     <>
     <h1>BotPress</h1>
      
+    <div>
+
+        <input type= "text" placeholder="Nome de usuario" ></input>
+        <button> Entrar </button>
+        <br></br>
+        <br></br>
+        <br></br>
+        <input type= "text" placeholder="Mensagem" ></input>
+        <button>Enviar </button>
+</div>
+
      {
+    
     people.lenght >0 ? (
      people.map((user,index)=>(  
     <div>
@@ -58,6 +56,7 @@ return (
         ) 
       ) 
     } 
+   
     </>
     
     )

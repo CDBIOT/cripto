@@ -19,15 +19,23 @@ async function getQuot(){
         cache: 'default',
         'Content-Type': 'application/json'}
 
-await Axios.get(`//economia.awesomeapi.com.br/last/USD-BRL`,options)
+//await Axios.get(`//economia.awesomeapi.com.br/last/USD-BRL/`,options)
+//https://api.coingecko.com/api/v3/coins/{id}/market_chart
+//https://api.coingecko.com/api/v3/search/trending
+//await Axios.get(`https://api.coingecko.com/api/v3/coins/{id}`,options)
+
+await Axios.get('https://api.coingecko.com/api/v3/search/trending',options)
+https
         .then(response=>
-         usbBrl = response.data.USDBRL)
+         //usbBrl = response.data.USDBRL)
+         usbBrl = response.data)
         
        setCode(usbBrl.code)
        setBid(usbBrl.bid)
        setHigh(usbBrl.high)
        setLow(usbBrl.low)
 
+        console.log(usbBrl) 
       console.log(usbBrl) 
     }
 
@@ -55,6 +63,12 @@ return (
               
         <tr>
             <td>{code}</td>
+            <td>{bid}</td>
+            <td>{high}</td>
+             <td>{low}</td>
+        </tr>
+        <tr>
+        <td>{code}</td>
             <td>{bid}</td>
             <td>{high}</td>
              <td>{low}</td>

@@ -21,6 +21,10 @@ return(
         <li className={styles.item}> 
             <Link to="/">Home</Link>
         </li>
+        
+        <li className={styles.item}> 
+            <Link to="/Calc">Calc</Link>
+        </li>
         <li className={styles.item}>
             <Link to="/Graphics">Graphics</Link>
         </li>
