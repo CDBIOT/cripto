@@ -25,7 +25,6 @@ async function getQuot(){
 //await Axios.get(`https://api.coingecko.com/api/v3/coins/{id}`,options)
 
 await Axios.get('https://api.coingecko.com/api/v3/search/trending',options)
-https
         .then(response=>
          //usbBrl = response.data.USDBRL)
          usbBrl = response.data)
@@ -68,7 +67,7 @@ return (
              <td>{low}</td>
         </tr>
         <tr>
-        <td>{code}</td>
+           <td>{code}</td>
             <td>{bid}</td>
             <td>{high}</td>
              <td>{low}</td>
