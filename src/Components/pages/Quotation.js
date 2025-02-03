@@ -55,18 +55,9 @@ return (
          <table>
             <tbody>
                 <tr>
-                    <td>CODE</td>
-                    <td>NAME</td>
-                    <td>PRICE</td>
-                </tr>
-            </tbody>
-        </table>
-        <table>
-            <tbody>
-                <tr>
-                <td>{coinid}</td>
-                <td>{name}</td>
-                <td>{price}</td>
+                    <td width="20%">CODE</td>
+                    <td width="20%">NAME</td>
+                    <td width="20%">PRICE</td>
                 </tr>
             </tbody>
         </table>
@@ -76,19 +67,19 @@ return (
     coins.map((c,{id})=>(  
     
         <tr key = {id}>
-            <td>{c.id}</td>
-            <td>{c.name}</td>
-            <td>{c.coinid}</td>
-             <td>{c.coinname}</td>
+            <td width="20%">{c.item.coin_id}</td>
+            <td width="20%">{c.item.name}</td>
+            <td width="20%">{c.item.coinid}</td>
+            <td width="20%">{c.item.data.price}</td>
         </tr>
      )
     )):(
         coinid.map((c,i)=>
         <tr key = {i}>
-            <td>{c.id}</td>
-            <td>{c.name}</td>
-            <td>{c.coinid}</td>
-            <td>{c.coinname}</td>
+            <td>{c.item.id}</td>
+            <td>{c.item.name}</td>
+            <td>{c.item.coinid}</td>
+            <td>{c.item.data.price}</td>
 
         </tr>
         
