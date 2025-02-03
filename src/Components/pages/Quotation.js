@@ -13,6 +13,7 @@ const [coinname, setCoinName] = useState([])
 async function getQuot(){
     let usbBrl;
     let coins;
+    let i;
     const options = { 
         'Access-Control-Allow-Origin':'*',
         method: 'GET',	
@@ -33,8 +34,8 @@ await Axios.get('https://api.coingecko.com/api/v3/search/trending',options)
        setName(usbBrl.name)
        setCoinId(usbBrl.coins[0].item.coinid)
        setCoinName(usbBrl.coins[0].item.coinname)
-
-        console.log(usbBrl.coins[0]) 
+for (i=0;i ==14;i++){
+    console.log(usbBrl.coins[i])}
     }
 
 
