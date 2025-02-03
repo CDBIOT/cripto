@@ -6,8 +6,8 @@ function Quotation(){
 
 const [id, setId] = useState([])
 const [name, setName] = useState([])
-const [high, setHigh] = useState([])
-const [low, setLow] = useState([])
+const [coinid, setCoinId] = useState([])
+const [coinname, setCoinName] = useState([])
 
 
 async function getQuot(){
@@ -26,16 +26,16 @@ async function getQuot(){
 
 await Axios.get('https://api.coingecko.com/api/v3/search/trending',options)
         .then(response=>
-         //usbBrl = response.data.USDBRL)
+         coins = response.data.coins)
          usbBrl = response.data.categories)
         
        setId(usbBrl.id)
        setName(usbBrl.name)
-       setHigh(usbBrl.high)
-       setLow(usbBrl.low)
+       setCoinId(coins.coinid)
+       setCoinName(coins.coinname)
 
         console.log(usbBrl) 
-      console.log(usbBrl) 
+      console.log(coins) 
     }
 
 
@@ -61,16 +61,16 @@ return (
         </table>
               
         <tr>
-            <td>{code}</td>
-            <td>{bid}</td>
-            <td>{high}</td>
-             <td>{low}</td>
+            <td>{id}</td>
+            <td>{name}</td>
+            <td>{coinid}</td>
+             <td>{coinname}</td>
         </tr>
         <tr>
-           <td>{code}</td>
-            <td>{bid}</td>
-            <td>{high}</td>
-             <td>{low}</td>
+           <td>{id}</td>
+            <td>{name}</td>
+            <td>{coinid}</td>
+             <td>{coinname}</td>
         </tr>
     </div>
     } 
