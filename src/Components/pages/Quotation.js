@@ -4,8 +4,8 @@ import {useEffect, useState} from 'react';
 
 function Quotation(){
 
-const [code, setCode] = useState([])
-const [bid, setBid] = useState([])
+const [id, setId] = useState([])
+const [name, setName] = useState([])
 const [high, setHigh] = useState([])
 const [low, setLow] = useState([])
 
@@ -27,10 +27,10 @@ async function getQuot(){
 await Axios.get('https://api.coingecko.com/api/v3/search/trending',options)
         .then(response=>
          //usbBrl = response.data.USDBRL)
-         usbBrl = response.data)
+         usbBrl = response.data.categories)
         
-       setCode(usbBrl.code)
-       setBid(usbBrl.bid)
+       setId(usbBrl.id)
+       setName(usbBrl.name)
        setHigh(usbBrl.high)
        setLow(usbBrl.low)
 
