@@ -3,11 +3,11 @@ import Axios from "axios";
 import {useEffect, useState} from 'react';
 
 function Quotation(){
-
+const [coins, setCoins] = useState([])
 const [id, setId] = useState([])
 const [name, setName] = useState([])
 const [coinid, setCoinId] = useState([])
-const [coinname, setCoinName] = useState([])
+const [price, setPrice] = useState([])
 
 
 async function getQuot(){
@@ -29,17 +29,19 @@ async function getQuot(){
 await Axios.get('https://api.coingecko.com/api/v3/search/trending',options)
         .then(response=>
          usbBrl = response.data)
-        
-       setId(usbBrl.coins[0].item)
-       setName(usbBrl.name)
-       setCoinId(usbBrl.coins)
-       setCoinName(usbBrl.coins[0].item.coinname)
+    
+    setCoins(usbBrl.coins)
+    setCoinId(usbBrl.coins[1].item.coin_id)
+    setId(usbBrl.coins[1].item.id)
+    setName(usbBrl.coins[1].item.name)
+    setPrice(usbBrl.coins[1].item.data.price)
 
-//for (i=0;i==14;i++){
-    console.log(usbBrl)//}
     console.log(usbBrl.coins)
-    //}
-    }
+    console.log(usbBrl.coins[0].item.name)
+    console.log(usbBrl.coins[1].item.name)
+    console.log(usbBrl.coins[1].item.coin_id)
+    console.log(usbBrl.coins[1].item.data.price)
+ }
 
 
 useEffect(() => {
@@ -54,17 +56,26 @@ return (
             <tbody>
                 <tr>
                     <td>CODE</td>
-                    <td>BID</td>
-                    <td>HIGH</td>
-                    <td>LOW</td>
+                    <td>NAME</td>
+                    <td>PRICE</td>
+                </tr>
+            </tbody>
+        </table>
+        <table>
+            <tbody>
+                <tr>
+                <td>{coinid}</td>
+                <td>{name}</td>
+                <td>{price}</td>
                 </tr>
             </tbody>
         </table>
               
      {
-   coinid.length>0 ? (
-    coinid.map((c,index)=>(  
-        <tr key = {index}>
+   coins.length>0 ? (
+    coins.map((c,{id})=>(  
+    
+        <tr key = {id}>
             <td>{c.id}</td>
             <td>{c.name}</td>
             <td>{c.coinid}</td>
