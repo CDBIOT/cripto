@@ -30,12 +30,15 @@ await Axios.get('https://api.coingecko.com/api/v3/search/trending',options)
         .then(response=>
          usbBrl = response.data)
         
-       setId(usbBrl.id)
+       setId(usbBrl.coins[0].item)
        setName(usbBrl.name)
-       setCoinId(usbBrl.coins[0].item.coinid)
+       setCoinId(usbBrl.coins)
        setCoinName(usbBrl.coins[0].item.coinname)
-for (i=0;i ==14;i++){
-    console.log(usbBrl.coins[i])}
+
+//for (i=0;i==14;i++){
+    console.log(usbBrl)//}
+    console.log(usbBrl.coins)
+    //}
     }
 
 
@@ -47,8 +50,6 @@ useEffect(() => {
 return (
     <>
     <h1>Quotation</h1>
-     {
-        <div>
          <table>
             <tbody>
                 <tr>
@@ -60,24 +61,34 @@ return (
             </tbody>
         </table>
               
-        <tr>
-            <td>{id}</td>
-            <td>{name}</td>
-            <td>{coinid}</td>
-             <td>{coinname}</td>
+     {
+   coinid.length>0 ? (
+    coinid.map((c,index)=>(  
+        <tr key = {index}>
+            <td>{c.id}</td>
+            <td>{c.name}</td>
+            <td>{c.coinid}</td>
+             <td>{c.coinname}</td>
         </tr>
-        <tr>
-           <td>{id}</td>
-            <td>{name}</td>
-            <td>{coinid}</td>
-             <td>{coinname}</td>
+     )
+    )):(
+        coinid.map((c,i)=>
+        <tr key = {i}>
+            <td>{c.id}</td>
+            <td>{c.name}</td>
+            <td>{c.coinid}</td>
+            <td>{c.coinname}</td>
+
         </tr>
-    </div>
+        
+        )
+
+     )
     } 
-    
     </>
     
     )
+
 }
     
 export default Quotation
