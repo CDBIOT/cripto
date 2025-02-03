@@ -27,16 +27,14 @@ async function getQuot(){
 
 await Axios.get('https://api.coingecko.com/api/v3/search/trending',options)
         .then(response=>
-         coins = response.data.coins,
-         usbBrl = response.data.categories)
+         usbBrl = response.data)
         
        setId(usbBrl.id)
        setName(usbBrl.name)
-       setCoinId(coins[0].coinid)
-       setCoinName(coins[0].coinname)
+       setCoinId(usbBrl.coins[0].coinid)
+       setCoinName(usdBrl.coins[0].coinname)
 
         console.log(usbBrl) 
-      console.log(coins) 
     }
 
 
