@@ -31,8 +31,8 @@ await Axios.get('https://api.coingecko.com/api/v3/search/trending',options)
         
        setId(usbBrl.id)
        setName(usbBrl.name)
-       setCoinId(coins.coinid)
-       setCoinName(coins.coinname)
+       setCoinId(coins[0].coinid)
+       setCoinName(coins[0].coinname)
 
         console.log(usbBrl) 
       console.log(coins) 
