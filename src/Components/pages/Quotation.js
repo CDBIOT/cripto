@@ -12,6 +12,7 @@ const [coinname, setCoinName] = useState([])
 
 async function getQuot(){
     let usbBrl;
+    let coins;
     const options = { 
         'Access-Control-Allow-Origin':'*',
         method: 'GET',	
