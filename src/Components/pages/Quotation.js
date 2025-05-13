@@ -67,19 +67,23 @@ return (
     coins.map((c,{id})=>(  
     
         <tr key = {id}>
+            <img src={c.item.thumb} alt={c.item.name} className="w-10 h-10 mx-auto" />
             <td width="20%">{c.item.coin_id}</td>
             <td width="20%">{c.item.name}</td>
             <td width="20%">{c.item.coinid}</td>
-            <td width="20%">{c.item.data.price}</td>
+            <td width="20%">{c.item.data.price.toFixed(3)}</td>
+          
         </tr>
      )
     )):(
         coinid.map((c,i)=>
         <tr key = {i}>
+            <img src={c.item.thumb} alt={c.item.name} className="w-10 h-10 mx-auto" />
             <td>{c.item.id}</td>
             <td>{c.item.name}</td>
             <td>{c.item.coinid}</td>
-            <td>{c.item.data.price}</td>
+            <td>{c.item.data.price.toFixed(3)}</td>
+            
 
         </tr>
         

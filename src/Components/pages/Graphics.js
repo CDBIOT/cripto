@@ -20,6 +20,12 @@ const [options, setOptions] = useState({
     ['Vue', 50],
   ])
     
+  
+const [coins, setCoins] = useState([])
+const [id, setId] = useState([])
+const [name, setName] = useState([])
+const [coinid, setCoinId] = useState([])
+const [price, setPrice] = useState([])
     const [temps, setTemperaturas] = useState([])
     const[temps2,setTemps]= useState([])
     const [initDate, setInitDate] = useState()
@@ -58,7 +64,9 @@ const [options, setOptions] = useState({
 
 
 
-async function getData(){
+async function getData(id){
+    setId = 1;
+    //let { id } = useParams();
     const options = { 
         'Access-Control-Allow-Origin':'*',
         method: 'GET',	
@@ -66,12 +74,12 @@ async function getData(){
         cache: 'default',
         'Content-Type': 'application/json'}
 
-await Axios.get('https://test-no-vercel.vercel.app/temps',options)
+await Axios.get('https://api.coingecko.com/api/v3/coins/{id}',options)
     .then(response=>{ 
-    setTemperaturas(response.data.temps)
+    setTemperaturas(response.data)
      console.log(temps)
      })
-     setTemps(temps.dia)
+     setTemps(temps)
    
     }
 
@@ -111,6 +119,7 @@ return (
 
     <div>  
         <table className={styles.table}>
+        <tbody>
         <tr><th className={styles.th} colSpan={4}>
         <td width="20%"className={styles.th}>Temp</td>
         <td width="20%" className={styles.th}>Local</td>
@@ -118,6 +127,7 @@ return (
         <td width="20%" className={styles.th}>Mes</td>
         <td width="20%" className={styles.th}>Ano</td>
         </th></tr>
+        </tbody>
     </table>
     </div>
         <tbody className={styles.tbody}>
